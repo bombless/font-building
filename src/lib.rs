@@ -1,8 +1,6 @@
 use proc_macro::TokenStream;
 use quote::quote;
 use rusttype::{point, Font, Scale};
-use std::fs::File;
-use std::io::Read;
 use syn::{
     parse::{Parse, ParseStream},
     parse_macro_input, LitStr, Result, Token,
@@ -60,11 +58,8 @@ pub fn render_text(input: TokenStream) -> TokenStream {
 }
 
 fn generate_bitmap_data_sized(text: &str, font_size: usize) -> Vec<[u32; 32]> {
-    // 嵌入默认字体或从环境变量获取路径
-    let mut file = File::open("./WenQuanYiMicroHei.ttf").unwrap();
-    let buffer = &mut Vec::new();
-    file.read_to_end(buffer).expect("Failed to read font file");
-    let font = Font::try_from_bytes(buffer).expect("Failed to load font");
+    let font = Font::try_from_bytes(include_bytes!("../WenQuanYiMicroHei.ttf"))
+        .expect("Failed to load font");
 
     let scale = Scale::uniform(font_size as f32);
     let v_metrics = font.v_metrics(scale);
@@ -123,8 +118,8 @@ pub fn render_text_debug(input: TokenStream) -> TokenStream {
                         output.push('█');
                         output.push('█');
                     } else {
-                        output.push(' ');
-                        output.push(' ');
+                        output.push('.');
+                        output.push('.');
                     }
                 }
                 output.push('\n');

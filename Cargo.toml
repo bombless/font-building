@@ -3,6 +3,9 @@ name = "font_macro"
 version = "0.1.0"
 edition = "2021"
 
+[workspace]
+members = ["examples/*"]
+
 [lib]
 proc-macro = true
 

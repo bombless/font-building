@@ -2,6 +2,9 @@
 name = "glyph-forge"
 version = "0.1.0"
 edition = "2021"
+description = "A handy tool library to generate glyph on build-time"
+license = "MIT"
+
 
 [workspace]
 members = ["examples/*"]

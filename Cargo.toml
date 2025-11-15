@@ -1,5 +1,5 @@
 [package]
-name = "font_macro"
+name = "glyph-forge"
 version = "0.1.0"
 edition = "2021"
 

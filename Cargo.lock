@@ -12,11 +12,11 @@ checksum = "366ffbaa4442f4684d91e2cd7c5ea7c4ed8add41959a31447066e279e432b618"
 name = "basic"
 version = "0.1.0"
 dependencies = [
- "font_macro",
+ "glyph-forge",
 ]
 
 [[package]]
-name = "font_macro"
+name = "glyph-forge"
 version = "0.1.0"
 dependencies = [
  "proc-macro2",

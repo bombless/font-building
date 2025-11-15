@@ -1,4 +1,4 @@
-use font_macro::{render_text, render_text_debug};
+use glyph_forge::{render_text, render_text_debug};
 
 fn main() {
     // 基本使用
